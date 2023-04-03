@@ -28,7 +28,7 @@ function Header() {
           <a href="#reception">Reception</a>
         </li>
         <li>
-          <a href="#">Table</a>
+          <a href="#table">Table</a>
         </li>
       </ul>
     </header>

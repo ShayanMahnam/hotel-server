@@ -9,12 +9,12 @@ function Hero() {
   ) as unknown as React.MutableRefObject<HTMLDivElement>;
 
   const [formData, setFormData] = useState({
-    title: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    checkInDate: "",
-    checkOutDate: "",
+    "title": "",
+    "firstName": "",
+    "surname": "",
+    "email": "",
+    "checkInDate": "",
+    "checkOutDate": "",
   });
 
   const [checkInDate, setCheckInDate] = useState<Date | null>(null);
@@ -52,7 +52,7 @@ function Hero() {
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "Application/json",
           },
           body: JSON.stringify(formData),
         }
@@ -62,12 +62,13 @@ function Hero() {
         setFormData({
           title: "",
           firstName: "",
-          lastName: "",
+          surname: "",
           email: "",
           checkInDate: "",
           checkOutDate: "",
         });
       } else {
+        console.log(formData)
         alert("Error submitting form.");
       }
     } catch (error) {
@@ -76,23 +77,28 @@ function Hero() {
   };
 
 
-  const handleCheckInChange = (date: Date) => {
-    setCheckInDate(date);
-    if (!checkOutDate || date > checkOutDate) {
-      setCheckOutDate(new Date(date.getTime() + 24 * 60 * 60 * 1000));
-    }
-  };
+const handleCheckInChange = (date: Date) => {
+  setCheckInDate(date);
+  setFormData((prevFormData) => ({
+    ...prevFormData,
+    checkInDate: date.toISOString().slice(0, 10),
+  }));
+};
 
-  const handleCheckOutChange = (date: Date) => {
-    setCheckOutDate(date);
-  };
+const handleCheckOutChange = (date: Date) => {
+  setCheckOutDate(date);
+  setFormData((prevFormData) => ({
+    ...prevFormData,
+    checkOutDate: date.toISOString().slice(0, 10),
+  }));
+};
 
   return (
     <section className="flex flex-col relative h-screen justify-center gap-5">
       <h1 id="booking" className="justify-self-start m-5 text-4xl">
         Booking
       </h1>
-      <div className="flex justify-center items-center gap-10">
+      <div className="flex flex-col-reverse md:flex-row justify-center items-center gap-10">
         <div className="w-6/12">
           <form
             className="flex flex-col w-full flex-wrap border-2 border-black rounded-2xl p-7 shadow-md gap-4"
@@ -132,9 +138,9 @@ function Hero() {
                 <label htmlFor="lastName">Last Name:</label>
                 <input
                   type="text"
-                  id="lastName"
-                  name="lastName"
-                  value={formData.lastName}
+                  id="surname"
+                  name="surname"
+                  value={formData.surname}
                   onChange={handleInputChange}
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   required
@@ -159,7 +165,7 @@ function Hero() {
               name="checkInDate"
               selected={checkInDate}
               onChange={handleCheckInChange}
-              dateFormat="dd/MM/yyyy"
+              dateFormat="yyyy-MM-dd"
               minDate={new Date()}
               placeholderText="Select a check-in date"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -172,7 +178,7 @@ function Hero() {
               name="checkOutDate"
               selected={checkOutDate}
               onChange={handleCheckOutChange}
-              dateFormat="dd/MM/yyyy"
+              dateFormat="yyyy-MM-dd"
               minDate={
                 checkInDate
                   ? new Date(checkInDate.getTime() + 24 * 60 * 60 * 1000)

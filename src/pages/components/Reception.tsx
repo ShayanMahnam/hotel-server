@@ -26,7 +26,7 @@ useEffect(() => {
       <h1 id="reception" className="justify-self-start m-5 text-4xl">
         Reception
       </h1>
-      <div className="flex gap-5 justify-center items-center">
+      <div className="flex flex-col-reverse md:flex-row gap-5 justify-center items-center">
         <p className="shadow-md border-black border-2 p-5 w-4/12 bg-cyan-300 rounded">
           Call 0 from your room if you need anything from reception. Lorem ipsum
           dolor sit amet consectetur adipisicing elit. Tempora reprehenderit
