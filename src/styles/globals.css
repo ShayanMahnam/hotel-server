@@ -9,6 +9,13 @@ font-family: 'Montserrat', sans-serif;
 font-family: 'Passion One', cursive;
 font-family: 'Roboto', sans-serif; */
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
 header p {
     font-family: 'Lilita One', cursive;
 }

@@ -88,7 +88,7 @@ function Hero() {
   };
 
   return (
-    <section className="flex flex-col relative h-screen justify-center">
+    <section className="flex flex-col relative h-screen justify-center gap-5">
       <h1 id="booking" className="justify-self-start m-5 text-4xl">
         Booking
       </h1>
