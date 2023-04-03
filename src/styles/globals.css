@@ -2,3 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat&family=Passion+One&family=Roboto&display=swap');
+
+/* font-family: 'Lilita One', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Passion One', cursive;
+font-family: 'Roboto', sans-serif; */
+
+header p {
+    font-family: 'Lilita One', cursive;
+}
