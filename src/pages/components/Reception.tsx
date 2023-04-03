@@ -33,6 +33,8 @@ useEffect(() => {
           ratione sint odit aperiam. Eveniet voluptate exercitationem voluptatem
           dolores corporis sit quo unde eius esse similique. Eum commodi vel
           impedit?
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur ea laborum quo dolor soluta numquam obcaecati, nesciunt esse vero explicabo, omnis possimus alias eaque, iste quisquam adipisci ducimus minus sequi!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro laudantium eveniet magnam! Repudiandae deserunt quam, ducimus impedit odio tenetur suscipit quo totam beatae eum natus nemo cumque expedita vero! Ducimus!
         </p>
         <div className="w-4/12" ref={container}></div>
       </div>

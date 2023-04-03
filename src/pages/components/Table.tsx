@@ -58,7 +58,7 @@ fetch("https://shayanmahnam-hotel-server.glitch.me/bookings")
         Table
       </h1>
 
-      <div className="flex flex-col items-center gap-5">
+      <div className="flex flex-col items-center gap-10">
         <form
           className="w-full flex gap-5 justify-center"
           onSubmit={handleSearch}
@@ -90,7 +90,7 @@ fetch("https://shayanmahnam-hotel-server.glitch.me/bookings")
             setSearchTerm("");
           }}
         >
-          Refresh
+          Refresh Table
         </button>
       </div>
 
@@ -141,7 +141,7 @@ fetch("https://shayanmahnam-hotel-server.glitch.me/bookings")
         </div>
       ) : (
         <div className="p-10 flex justify-center">
-          <table className="table-auto">
+          <table className="table-auto md:w-full">
             <thead>
               <tr>
                 <th className="px-4 py-2">ID</th>
