@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import Reception from './components/Reception'
 import Table from './components/Table'
+import Footer from './components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,6 +23,7 @@ export default function Home() {
         <Hero />
         <Reception />
         <Table />
+        <Footer />
       </main>
     </>
   );
