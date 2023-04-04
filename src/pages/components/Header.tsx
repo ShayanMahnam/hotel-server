@@ -17,18 +17,30 @@ function Header() {
   }, []);
 
   return (
-    <header className="fixed w-full flex justify-between items-center px-5 shadow-xl z-10 bg-white">
-      <p className="md:text-5xl text-sm">Shayan Hotel server</p>
-      <div ref={container} className="w-32 justify-self-center"></div>
+    <header className="fixed w-full flex justify-between items-center px-5 shadow-xl z-10 bg-white top-0">
+      <p className="md:text-5xl text-xs">Shayan Hotel server</p>
+      <div ref={container} className="md:w-32 w-16 justify-self-center"></div>
       <ul className="flex gap-5">
         <li>
-          <a href="#booking">Booking</a>
+          <a
+            className="hover:text-blue-600 text-xs md:text-xl"
+            href="#booking"
+          >
+            Booking
+          </a>
         </li>
         <li>
-          <a href="#reception">Reception</a>
+          <a
+            className="hover:text-blue-600 text-xs md:text-xl"
+            href="#reception"
+          >
+            Reception
+          </a>
         </li>
         <li>
-          <a href="#table">Table</a>
+          <a className="hover:text-blue-600 text-xs md:text-xl" href="#table">
+            Table
+          </a>
         </li>
       </ul>
     </header>

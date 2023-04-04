@@ -94,12 +94,12 @@ const handleCheckOutChange = (date: Date) => {
 };
 
   return (
-    <section className="flex flex-col relative h-screen justify-center gap-5">
-      <h1 id="booking" className="justify-self-start m-5 text-4xl">
+    <section className="flex flex-col relative mt-20 md:h-screen justify-center items-center  gap-5">
+      <h1 id="booking" className="self-start m-5 text-4xl">
         Booking
       </h1>
       <div className="flex flex-col-reverse md:flex-row justify-center items-center gap-10">
-        <div className="w-6/12">
+        <div className="md:w-6/12">
           <form
             className="flex flex-col w-full flex-wrap border-2 border-black rounded-2xl p-7 shadow-md gap-4"
             onSubmit={handleSubmit}
@@ -110,7 +110,7 @@ const handleCheckOutChange = (date: Date) => {
               name="title"
               value={formData.title}
               onChange={handleInputChange}
-              className="shadow appearance-none border rounded w-2/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-5/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               required
             >
               <option value="">Please select</option>

@@ -79,7 +79,7 @@ function Table() {
 
       <div className="flex flex-col items-center gap-10">
         <form
-          className="w-full flex gap-5 justify-center"
+          className="w-full flex md:flex-row flex-col items-center gap-5 justify-center"
           onSubmit={handleSearch}
         >
           <input
@@ -93,7 +93,7 @@ function Table() {
             value={searchTerm}
             onChange={(event) => setSearchTerm(event.target.value)}
             placeholder="Search by email, first name or surname"
-            className="w-4/12 border border-gray-400 py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+            className="md:w-4/12 w-10/12 border border-gray-400 py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
           />
           <button
             type="submit"
@@ -158,7 +158,7 @@ function Table() {
           <span>Data is loading, Please wait!</span>
         </div>
       ) : (
-        <div className="p-10 flex justify-center">
+        <div className="p-10 md:flex md:justify-center w-full overflow-x-auto shadow-md sm:rounded-lg">
           <table className="table-auto md:w-full">
             <thead>
               <tr>
@@ -170,6 +170,7 @@ function Table() {
                 <th className="px-4 py-2">Room ID</th>
                 <th className="px-4 py-2">Check in Date</th>
                 <th className="px-4 py-2">Check out Date</th>
+                <th className="px-4 py-2">Actions</th>
               </tr>
             </thead>
             <tbody>
