@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import lottie from "lottie-web";
 
 interface Booking {
   id: number;
@@ -12,27 +13,45 @@ interface Booking {
 }
 
 function Table() {
+  const container = useRef(
+    null
+  ) as unknown as React.MutableRefObject<HTMLDivElement>;
   const [data, setData] = useState<Booking[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [searchDate, setSearchDate] = useState<string>(
     new Date().toISOString().substr(0, 10)
   );
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
   useEffect(() => {
-    fetchData()
-  }, []);
+    fetchData();
+    const instance = lottie.loadAnimation({
+      container: container.current!,
+      renderer: "svg",
+      loop: false,
+      autoplay: true,
+      path: "/refresh.json",
+    });
 
+    return () => instance.destroy();
+  }, [isRefreshing]);
+
+  const handleRefresh = () => {
+    setIsRefreshing(!isRefreshing);
+    fetchData();
+    setSearchTerm("");
+  };
 
   const fetchData = () => {
-fetch("https://shayanmahnam-hotel-server.glitch.me/bookings")
-  .then((response) => response.json())
-  .then((data) => {
-    setData(data)
-  setIsLoading(false)
-})
-  .catch((error) => console.error(error));
-  }
+    fetch("https://shayanmahnam-hotel-server.glitch.me/bookings")
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+        setIsLoading(false);
+      })
+      .catch((error) => console.error(error));
+  };
 
   const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -83,15 +102,14 @@ fetch("https://shayanmahnam-hotel-server.glitch.me/bookings")
             Search
           </button>
         </form>
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 rounded focus:outline-none focus:shadow-outline"
-          onClick={() => {
-            fetchData();
-            setSearchTerm("");
-          }}
-        >
-          Refresh Table
-        </button>
+        <div className="flex justify-center items-center">
+          <p>Refresh table</p>
+          <div
+            className="w-24 cursor-pointer"
+            ref={container}
+            onClick={handleRefresh}
+          ></div>
+        </div>
       </div>
 
       {isLoading ? (

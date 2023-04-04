@@ -19,3 +19,11 @@ font-family: 'Roboto', sans-serif; */
 header p {
     font-family: 'Lilita One', cursive;
 }
+
+header ul li a {
+    font-family: 'Roboto', sans-serif;
+}
+
+p{
+    font-family: 'Montserrat', sans-serif;
+}

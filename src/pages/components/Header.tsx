@@ -17,7 +17,7 @@ function Header() {
   }, []);
 
   return (
-    <header className="fixed w-full flex justify-between items-center px-5 shadow-xl z-10 bg-cyan-300">
+    <header className="fixed w-full flex justify-between items-center px-5 shadow-xl z-10 bg-white">
       <p className="md:text-5xl text-sm">Shayan Hotel server</p>
       <div ref={container} className="w-32 justify-self-center"></div>
       <ul className="flex gap-5">
